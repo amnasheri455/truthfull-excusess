@@ -5,61 +5,61 @@
 <title>Excuse Chatbot</title>
 <style>
 body {
-font-family: Arial, sans-serif;
-background: #fff8e7;
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #fff8e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 h1 {
-color: #ff6f61;
+    color: #ff6f61;
 }
 .chatbox {
-background: #fff;
-width: 400px;
-height: 400px;
-border-radius: 10px;
-box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-display: flex;
-flex-direction: column;
-padding: 10px;
-overflow-y: auto;
-margin-bottom: 10px;
+    background: #fff;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    margin-bottom: 10px;
 }
 .message {
-margin: 5px 0;
-padding: 8px;
-border-radius: 5px;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
 }
 .user {
-background: #d1e7dd;
-align-self: flex-end;
+    background: #d1e7dd;
+    align-self: flex-end;
 }
 .bot {
-background: #f8d7da;
-align-self: flex-start;
+    background: #f8d7da;
+    align-self: flex-start;
 }
 .input-area {
-display: flex;
-gap: 5px;
+    display: flex;
+    gap: 5px;
 }
 input {
-flex: 1;
-padding: 8px;
-border: 1px solid #ccc;
-border-radius: 5px;
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 button {
-background: #ff6f61;
-color: white;
-border: none;
-padding: 8px 12px;
-border-radius: 5px;
-cursor: pointer;
+    background: #ff6f61;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 button:hover {
-background: #e65a50;
+    background: #e65a50;
 }
 </style>
 </head>
@@ -67,314 +67,314 @@ background: #e65a50;
 <h1>Excuse Chatbot 🤖</h1>
 <div class="chatbox" id="chatbox"></div>
 <div class="input-area">
-<input type="text" id="userInput" placeholder="Enter your situation...">
-<button onclick="sendMessage()">Send</button>
+    <input type="text" id="userInput" placeholder="Enter your situation...">
+    <button onclick="sendMessage()">Send</button>
 </div>
 
 <script>
 const excuses = {
-"being late": [
-    "The alarm didn’t go off—technology fails us all sometimes.",
-    "I was stuck in traffic, it was completely unpredictable.",
-    "There was a family emergency I had to attend to.",
-    "I was feeling unwell this morning.",
-    "I lost track of time while helping a neighbor."
-],
-"missing deadline": [
-    "I ran into unexpected technical issues.",
-    "The data I needed was delayed.",
-    "I was waiting for input from another department.",
-    "There was a personal emergency I had to handle.",
-    "My laptop decided to update at the worst time."
-],
-"skipping meeting": [
-    "I had a sudden client call.",
-    "I mixed up my calendar times.",
-    "I wasn’t feeling well at the moment.",
-    "My internet connection dropped suddenly.",
-    "I was stuck resolving an urgent issue."
-],
-"forgetting something": [
-    "I had so much on my mind, it slipped through the cracks.",
-    "I wrote it down, but misplaced my note.",
-    "I got distracted by another urgent task.",
-    "I thought I already did it!",
-    "I’m juggling too many things at once lately.",
-    "I completely blanked—sorry about that.",
-    "It was on my to-do list, but I missed it.",
-    "I was sure I set a reminder, but apparently not.",
-    "I was multitasking and it just slipped away.",
-    "I remembered at the wrong time and then forgot again.",
-    "I was interrupted right when I was about to do it.",
-    "My brain just glitched for a moment."
-],
-"forgot": [
-    "I had so much on my mind, it slipped through the cracks.",
-    "I wrote it down, but misplaced my note.",
-    "I got distracted by another urgent task.",
-    "I thought I already did it!",
-    "I’m juggling too many things at once lately.",
-    "I completely blanked—sorry about that.",
-    "It was on my to-do list, but I missed it.",
-    "I was sure I set a reminder, but apparently not.",
-    "I was multitasking and it just slipped away.",
-    "I remembered at the wrong time and then forgot again.",
-    "I was interrupted right when I was about to do it.",
-    "My brain just glitched for a moment."
-],
-"forget": [
-    "I had so much on my mind, it slipped through the cracks.",
-    "I wrote it down, but misplaced my note.",
-    "I got distracted by another urgent task.",
-    "I thought I already did it!",
-    "I’m juggling too many things at once lately.",
-    "I completely blanked—sorry about that.",
-    "It was on my to-do list, but I missed it.",
-    "I was sure I set a reminder, but apparently not.",
-    "I was multitasking and it just slipped away.",
-    "I remembered at the wrong time and then forgot again.",
-    "I was interrupted right when I was about to do it.",
-    "My brain just glitched for a moment."
-],
-"memory": [
-    "My memory failed me at the worst possible time.",
-    "I was sure I’d remember, but it just vanished.",
-    "I need to start writing things down more often.",
-    "I think my brain took a short break."
-]
+    "being late": [
+        "The alarm didn’t go off—technology fails us all sometimes.",
+        "I was stuck in traffic, it was completely unpredictable.",
+        "There was a family emergency I had to attend to.",
+        "I was feeling unwell this morning.",
+        "I lost track of time while helping a neighbor."
+    ],
+    "missing deadline": [
+        "I ran into unexpected technical issues.",
+        "The data I needed was delayed.",
+        "I was waiting for input from another department.",
+        "There was a personal emergency I had to handle.",
+        "My laptop decided to update at the worst time."
+    ],
+    "skipping meeting": [
+        "I had a sudden client call.",
+        "I mixed up my calendar times.",
+        "I wasn’t feeling well at the moment.",
+        "My internet connection dropped suddenly.",
+        "I was stuck resolving an urgent issue."
+    ],
+    "forgetting something": [
+        "I had so much on my mind, it slipped through the cracks.",
+        "I wrote it down, but misplaced my note.",
+        "I got distracted by another urgent task.",
+        "I thought I already did it!",
+        "I’m juggling too many things at once lately.",
+        "I completely blanked—sorry about that.",
+        "It was on my to-do list, but I missed it.",
+        "I was sure I set a reminder, but apparently not.",
+        "I was multitasking and it just slipped away.",
+        "I remembered at the wrong time and then forgot again.",
+        "I was interrupted right when I was about to do it.",
+        "My brain just glitched for a moment."
+    ],
+    "forgot": [
+        "I had so much on my mind, it slipped through the cracks.",
+        "I wrote it down, but misplaced my note.",
+        "I got distracted by another urgent task.",
+        "I thought I already did it!",
+        "I’m juggling too many things at once lately.",
+        "I completely blanked—sorry about that.",
+        "It was on my to-do list, but I missed it.",
+        "I was sure I set a reminder, but apparently not.",
+        "I was multitasking and it just slipped away.",
+        "I remembered at the wrong time and then forgot again.",
+        "I was interrupted right when I was about to do it.",
+        "My brain just glitched for a moment."
+    ],
+    "forget": [
+        "I had so much on my mind, it slipped through the cracks.",
+        "I wrote it down, but misplaced my note.",
+        "I got distracted by another urgent task.",
+        "I thought I already did it!",
+        "I’m juggling too many things at once lately.",
+        "I completely blanked—sorry about that.",
+        "It was on my to-do list, but I missed it.",
+        "I was sure I set a reminder, but apparently not.",
+        "I was multitasking and it just slipped away.",
+        "I remembered at the wrong time and then forgot again.",
+        "I was interrupted right when I was about to do it.",
+        "My brain just glitched for a moment."
+    ],
+    "memory": [
+        "My memory failed me at the worst possible time.",
+        "I was sure I’d remember, but it just vanished.",
+        "I need to start writing things down more often.",
+        "I think my brain took a short break."
+    ],
+    "class cutting": [
+        "I had a personal matter to attend to during class time.",
+        "I wasn't feeling well and thought it was best to rest.",
+        "There was an urgent family situation I couldn't avoid.",
+        "I had to take care of something important unexpectedly.",
+        "I lost track of time and missed the class.",
+        "I had a prior commitment that overlapped with class.",
+        "I was caught up in another responsibility and couldn't make it.",
+        "I had transportation issues and couldn't get to class.",
+        "I needed to handle an emergency at home.",
+        "I had to help someone in need during that time.",
+        "I was feeling overwhelmed and needed a break.",
+        "I had a doctor's appointment that couldn't be rescheduled.",
+        "I was delayed by circumstances beyond my control.",
+        "I had to resolve a sudden issue that came up right before class.",
+        "I was dealing with a situation that required my immediate attention."
+    ],
+    "college problem": [
+        "I was managing multiple deadlines and something had to give.",
+        "I had to prioritize an urgent academic task.",
+        "I was dealing with unexpected personal issues.",
+        "I was feeling under the weather and couldn't perform at my best.",
+        "I had technical difficulties that set me back.",
+        "I was waiting for important information that arrived late.",
+        "I was overwhelmed by assignments and lost track of time.",
+        "I had to help a friend in need during a critical moment.",
+        "I was caught up in campus activities that ran longer than expected.",
+        "I had to attend to a family responsibility at short notice.",
+        "I was affected by a sudden change in my schedule.",
+        "I was unable to access the required resources in time.",
+        "I had to resolve a conflict between overlapping commitments.",
+        "I was delayed by transportation or connectivity issues.",
+        "I was balancing work and study, and it became too much at once.",
+        "I had to deal with an emergency that couldn't be postponed.",
+        "I was impacted by an unexpected event on campus.",
+        "I was trying to catch up on missed work from earlier in the semester.",
+        "I was dealing with stress and needed to take care of my mental health.",
+        "I had to adapt to a last-minute change in plans."
+    ],
+    "leaving early": [
+        "I had a doctor's appointment I couldn't reschedule.",
+        "I needed to pick up a family member unexpectedly.",
+        "I was feeling unwell and thought it best to leave early.",
+        "I had an urgent personal matter to attend to.",
+        "I had to handle a sudden childcare issue.",
+        "I received an emergency call from home.",
+        "I had to meet a repair technician at my house.",
+        "I had a prior commitment that required me to leave early.",
+        "I was notified of a last-minute family emergency.",
+        "I had to attend an important meeting elsewhere.",
+        "I had to take care of an urgent banking matter before closing time.",
+        "I was called in for an emergency at my other job.",
+        "I had to pick up a prescription before the pharmacy closed.",
+        "I had to attend a scheduled interview.",
+        "I needed to avoid heavy traffic due to a road closure.",
+        "I had to meet a contractor for a home repair.",
+        "I had to attend a school event for my child.",
+        "I was experiencing a severe headache and needed to rest.",
+        "I had to resolve a sudden issue with my car.",
+        "I had to help a neighbor with an emergency.",
+        "I had to sign important documents before the office closed.",
+        "I had to respond to a time-sensitive legal matter.",
+        "I had to catch a scheduled transportation service.",
+        "I had to attend a community or religious event.",
+        "I was notified of a power outage at home and needed to check on things."
+    ],
+    "employee problem": [
+        "I was caught up in an urgent work task that required my immediate attention.",
+        "I had to attend to a last-minute client request.",
+        "I was dealing with unexpected technical issues.",
+        "I had a sudden meeting that couldn't be rescheduled.",
+        "I was waiting for input from another team.",
+        "I was handling a critical issue that took longer than expected.",
+        "I had to resolve a conflict between overlapping priorities.",
+        "I was delayed by unforeseen circumstances at work.",
+        "I had to assist a colleague with an urgent matter.",
+        "I was affected by a system outage.",
+        "I was balancing multiple projects and something slipped through.",
+        "I had to respond to an emergency situation.",
+        "I was impacted by a last-minute change in project requirements.",
+        "I was unable to access the necessary resources in time.",
+        "I was caught up in back-to-back meetings.",
+        "I had to adapt to a sudden shift in priorities.",
+        "I was dealing with a personal matter that affected my work.",
+        "I was waiting for approval to proceed.",
+        "I was handling a customer issue that took longer than planned.",
+        "I was affected by unexpected delays in the workflow."
+    ]
 };
 
-function sendMessage() {
-const input = document.getElementById("userInput").value.trim().toLowerCase();
-if (!input) return;
-
-addMessage(input, "user");
-
-let reply = "Hmm, I don't have an excuse for that yet.";
-for (let key in excuses) {
-if (input.includes(key)) {
-const options = excuses[key];
-reply = options[Math.floor(Math.random() * options.length)];
-break;
-}
-}
-
-setTimeout(() => addMessage(reply, "bot"), 500);
-document.getElementById("userInput").value = "";
-}
 const genericExcuses = [
-  // Existing excuses
-  "Life threw a curveball at me.",
-  "Something unexpected came up.",
-  "I did my best, but things didn't go as planned.",
-  "There were circumstances beyond my control.",
-  "I ran into some unforeseen issues.",
-  "It was just one of those days.",
-  "I apologize, it just didn't work out this time.",
-  "I tried, but things got complicated.",
-  "I got sidetracked by something urgent.",
-  "I wish I had a better excuse, but that's the truth.",
-  "I encountered unexpected challenges that I couldn't avoid.",
-  "I did everything I could, but the situation was out of my hands.",
-  "Despite my best efforts, things didn't go as intended.",
-  "I faced some last-minute complications.",
-  "I was dealing with multiple priorities at once.",
-  "I had to respond to an urgent matter that needed my attention.",
-  "I was caught off guard by an unexpected event.",
-  "I was unable to resolve an issue in time.",
-  "I ran into a problem I couldn't fix right away.",
-  "I had to adapt to a sudden change in plans.",
-  "I was delayed by factors I couldn't control.",
-  "I had to make a tough decision on the spot.",
-  "I was overwhelmed by unforeseen circumstances.",
-  "I had to handle an emergency that took priority.",
-  "I encountered a situation that required immediate action.",
-  "I was trying to manage everything, but something slipped through.",
-  "I was relying on something that didn't work out.",
-  "I had to adjust my plans at the last minute.",
-  "I was waiting for something that got delayed.",
-  "I was affected by an unexpected interruption.",
-  "I did not anticipate the issue that came up.",
-  "I was unable to follow through due to a sudden obstacle.",
-  "I had to shift my focus unexpectedly.",
-  "I was caught up in resolving another urgent problem.",
-  "I tried to prevent it, but it was unavoidable.",
-  "I was unable to get the support I needed in time.",
-  "I had to prioritize something critical at the last moment.",
-  // Child-specific excuses
-  "My homework got lost in my backpack.",
-  "I forgot because I was playing outside.",
-  "My pet distracted me while I was working.",
-  "I left my assignment at home.",
-  "I was helping my parents with chores.",
-  "I didn't understand the instructions.",
-  "I was feeling tired after school.",
-  "I had to take care of my younger sibling.",
-  "I was at a family event and couldn't finish.",
-  "I accidentally spilled something on my homework.",
-  // Student-specific excuses
-  "I had too much homework from other classes.",
-  "I was studying for a big test.",
-  "I had a group project that took longer than expected.",
-  "I was participating in a school activity.",
-  "I had to attend a tutoring session.",
-  "I was working on an assignment for another subject.",
-  "I had a late-night study session and overslept.",
-  "I was preparing for an important presentation.",
-  "I had technical issues submitting my work.",
-  "I was feeling anxious about my grades.",
-  "i didnt attend the class,can you give me some excuses",
-
-  "I had to work late at my job.",
-  "I was dealing with a family responsibility.",
-  "I had an unexpected work meeting.",
-  "I was caught in traffic on the way home.",
-  "I had to take care of household tasks.",
-  "I was feeling under the weather.",
-  "I had to help a friend in need.",
-  "I was managing multiple deadlines at work.",
-  "I had to attend an important appointment.",
-  "I was dealing with a personal emergency.",
-  // More excuses for missing class
-  "I missed class because my alarm didn't go off.",
-  "I had a doctor's appointment that overlapped with class time.",
-  "I was feeling too sick to attend class.",
-  "I had transportation issues and couldn't make it.",
-  "I had to help a family member unexpectedly.",
-  "I was caught in bad weather on my way to class.",
-  "I had a flat tire and couldn't get to school.",
-  "I had to attend an urgent meeting during class.",
-  "I was dealing with a sudden migraine.",
-  "I had to take care of an emergency at home.",
-  "I was feeling overwhelmed and needed a mental health break.",
-  "I lost track of time while studying for another subject.",
-  "I was waiting for an important phone call.",
-  "I had to resolve a personal issue that couldn't wait.",
-  "I was delayed by a previous class that ran late.",
-  "I had to pick up a sibling from school unexpectedly.",
-  "I was stuck in traffic due to an accident.",
-  "I had to attend a family event at short notice.",
-  "I was feeling anxious and needed some time to recover.",
-  "I had to submit an urgent assignment for another class."
-];
-excuses["class cutting"] = [
-  "I had a personal matter to attend to during class time.",
-  "I wasn't feeling well and thought it was best to rest.",
-  "There was an urgent family situation I couldn't avoid.",
-  "I had to take care of something important unexpectedly.",
-  "I lost track of time and missed the class.",
-  "I had a prior commitment that overlapped with class.",
-  "I was caught up in another responsibility and couldn't make it.",
-  "I had transportation issues and couldn't get to class.",
-  "I needed to handle an emergency at home.",
-  "I had to help someone in need during that time.",
-  "I was feeling overwhelmed and needed a break.",
-  "I had a doctor's appointment that couldn't be rescheduled.",
-  "I was delayed by circumstances beyond my control.",
-  "I had to resolve a sudden issue that came up right before class.",
-  "I was dealing with a situation that required my immediate attention."
+    "Life threw a curveball at me.",
+    "Something unexpected came up.",
+    "I did my best, but things didn't go as planned.",
+    "There were circumstances beyond my control.",
+    "I ran into some unforeseen issues.",
+    "It was just one of those days.",
+    "I apologize, it just didn't work out this time.",
+    "I tried, but things got complicated.",
+    "I got sidetracked by something urgent.",
+    "I wish I had a better excuse, but that's the truth.",
+    "I encountered unexpected challenges that I couldn't avoid.",
+    "I did everything I could, but the situation was out of my hands.",
+    "Despite my best efforts, things didn't go as intended.",
+    "I faced some last-minute complications.",
+    "I was dealing with multiple priorities at once.",
+    "I had to respond to an urgent matter that needed my attention.",
+    "I was caught off guard by an unexpected event.",
+    "I was unable to resolve an issue in time.",
+    "I ran into a problem I couldn't fix right away.",
+    "I had to adapt to a sudden change in plans.",
+    "I was delayed by factors I couldn't control.",
+    "I had to make a tough decision on the spot.",
+    "I was overwhelmed by unforeseen circumstances.",
+    "I had to handle an emergency that took priority.",
+    "I encountered a situation that required immediate action.",
+    "I was trying to manage everything, but something slipped through.",
+    "I was relying on something that didn't work out.",
+    "I had to adjust my plans at the last minute.",
+    "I was waiting for something that got delayed.",
+    "I was affected by an unexpected interruption.",
+    "I did not anticipate the issue that came up.",
+    "I was unable to follow through due to a sudden obstacle.",
+    "I had to shift my focus unexpectedly.",
+    "I was caught up in resolving another urgent problem.",
+    "I tried to prevent it, but it was unavoidable.",
+    "I was unable to get the support I needed in time.",
+    "I had to prioritize something critical at the last moment.",
+    // Child-specific excuses
+    "My homework got lost in my backpack.",
+    "I forgot because I was playing outside.",
+    "My pet distracted me while I was working.",
+    "I left my assignment at home.",
+    "I was helping my parents with chores.",
+    "I didn't understand the instructions.",
+    "I was feeling tired after school.",
+    "I had to take care of my younger sibling.",
+    "I was at a family event and couldn't finish.",
+    "I accidentally spilled something on my homework.",
+    // Student-specific excuses
+    "I had too much homework from other classes.",
+    "I was studying for a big test.",
+    "I had a group project that took longer than expected.",
+    "I was participating in a school activity.",
+    "I had to attend a tutoring session.",
+    "I was working on an assignment for another subject.",
+    "I had a late-night study session and overslept.",
+    "I was preparing for an important presentation.",
+    "I had technical issues submitting my work.",
+    "I was feeling anxious about my grades.",
+    "i didnt attend the class,can you give me some excuses",
+    "I had to work late at my job.",
+    "I was dealing with a family responsibility.",
+    "I had an unexpected work meeting.",
+    "I was caught in traffic on the way home.",
+    "I had to take care of household tasks.",
+    "I was feeling under the weather.",
+    "I had to help a friend in need.",
+    "I was managing multiple deadlines at work.",
+    "I had to attend an important appointment.",
+    "I was dealing with a personal emergency.",
+    // More excuses for missing class
+    "I missed class because my alarm didn't go off.",
+    "I had a doctor's appointment that overlapped with class time.",
+    "I was feeling too sick to attend class.",
+    "I had transportation issues and couldn't make it.",
+    "I had to help a family member unexpectedly.",
+    "I was caught in bad weather on my way to class.",
+    "I had a flat tire and couldn't get to school.",
+    "I had to attend an urgent meeting during class.",
+    "I was dealing with a sudden migraine.",
+    "I had to take care of an emergency at home.",
+    "I was feeling overwhelmed and needed a mental health break.",
+    "I lost track of time while studying for another subject.",
+    "I was waiting for an important phone call.",
+    "I had to resolve a personal issue that couldn't wait.",
+    "I was delayed by a previous class that ran late.",
+    "I had to pick up a sibling from school unexpectedly.",
+    "I was stuck in traffic due to an accident.",
+    "I had to attend a family event at short notice.",
+    "I was feeling anxious and needed some time to recover.",
+    "I had to submit an urgent assignment for another class."
 ];
 
-// More universal excuses for any college student problem
-excuses["college problem"] = [
-  "I was managing multiple deadlines and something had to give.",
-  "I had to prioritize an urgent academic task.",
-  "I was dealing with unexpected personal issues.",
-  "I was feeling under the weather and couldn't perform at my best.",
-  "I had technical difficulties that set me back.",
-  "I was waiting for important information that arrived late.",
-  "I was overwhelmed by assignments and lost track of time.",
-  "I had to help a friend in need during a critical moment.",
-  "I was caught up in campus activities that ran longer than expected.",
-  "I had to attend to a family responsibility at short notice.",
-  "I was affected by a sudden change in my schedule.",
-  "I was unable to access the required resources in time.",
-  "I had to resolve a conflict between overlapping commitments.",
-  "I was delayed by transportation or connectivity issues.",
-  "I was balancing work and study, and it became too much at once.",
-  "I had to deal with an emergency that couldn't be postponed.",
-  "I was impacted by an unexpected event on campus.",
-  "I was trying to catch up on missed work from earlier in the semester.",
-  "I was dealing with stress and needed to take care of my mental health.",
-  "I had to adapt to a last-minute change in plans."
-];
-
-// Universal excuses for employee problems
-excuses["employee problem"] = [
-  "I was caught up in an urgent work task that required my immediate attention.",
-  "I had to attend to a last-minute client request.",
-  "I was dealing with unexpected technical issues.",
-  "I had a sudden meeting that couldn't be rescheduled.",
-  "I was waiting for input from another team.",
-  "I was handling a critical issue that took longer than expected.",
-  "I had to resolve a conflict between overlapping priorities.",
-  "I was delayed by unforeseen circumstances at work.",
-  "I had to assist a colleague with an urgent matter.",
-  "I was affected by a system outage.",
-  "I was balancing multiple projects and something slipped through.",
-  "I had to respond to an emergency situation.",
-  "I was impacted by a last-minute change in project requirements.",
-  "I was unable to access the necessary resources in time.",
-  "I was caught up in back-to-back meetings.",
-  "I had to adapt to a sudden shift in priorities.",
-  "I was dealing with a personal matter that affected my work.",
-  "I was waiting for approval to proceed.",
-  "I was handling a customer issue that took longer than planned.",
-  "I was affected by unexpected delays in the workflow."
-];
 function addMessage(text, sender) {
-const chatbox = document.getElementById("chatbox");
-const msg = document.createElement("div");
-msg.classList.add("message", sender);
-msg.innerText = text;
-chatbox.appendChild(msg);
-chatbox.scrollTop = chatbox.scrollHeight;
+    const chatbox = document.getElementById("chatbox");
+    const msg = document.createElement("div");
+    msg.classList.add("message", sender);
+    msg.innerText = text;
+    chatbox.appendChild(msg);
+    chatbox.scrollTop = chatbox.scrollHeight;
 }
-</script>
-</body>
-</html>
-// ...existing code...
+
 function sendMessage() {
-    const input = document.getElementById("userInput").value.trim().toLowerCase();
+    const inputElem = document.getElementById("userInput");
+    const input = inputElem.value.trim().toLowerCase();
     if (!input) return;
 
     addMessage(input, "user");
 
     let reply = "Hmm, I don't have an excuse for that yet.";
 
-    // School/college/class specific matching
-    if (
-        input.includes("school") ||
-        input.includes("college") ||
-        input.includes("class") ||
-        input.includes("assignment") ||
-        input.includes("homework") ||
-        input.includes("professor") ||
-        input.includes("teacher") ||
-        input.includes("exam") ||
-        input.includes("test") ||
-        input.includes("lecture")
-    ) {
-        // Prefer class cutting for "class", otherwise college problem
-        if (input.includes("class")) {
-            const options = excuses["class cutting"];
-            reply = options[Math.floor(Math.random() * options.length)];
-        } else {
-            const options = excuses["college problem"];
-            reply = options[Math.floor(Math.random() * options.length)];
-        }
+    // Keywords for school/college/class problems
+    const schoolKeywords = [
+        "school", "college", "class", "assignment", "homework",
+        "professor", "teacher", "exam", "test", "lecture"
+    ];
+
+    // Check for school/college/class keywords
+    if (schoolKeywords.some(word => input.includes(word))) {
+        const key = input.includes("class") ? "class cutting" : "college problem";
+        const options = excuses[key];
+        if (options) reply = options[Math.floor(Math.random() * options.length)];
     } else {
-        // Fallback to existing matching
+        // Fallback to matching any other excuse key
+        let found = false;
         for (let key in excuses) {
             if (input.includes(key)) {
                 const options = excuses[key];
                 reply = options[Math.floor(Math.random() * options.length)];
+                found = true;
                 break;
             }
+        }
+        // If no specific excuse found, use a generic one
+        if (!found) {
+            reply = genericExcuses[Math.floor(Math.random() * genericExcuses.length)];
         }
     }
 
     setTimeout(() => addMessage(reply, "bot"), 500);
-    document.getElementById("userInput").value = "";
-}
-// ...existing code...
+    inputElem.value = "";
+    }
+</script>
+</body>
+</html>
